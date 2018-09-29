@@ -13,7 +13,19 @@
       $this->model = new ideasModel();
     }
 
+    function crear()
+    {
+
+
+    }
+
+    function home (){
+      $ideas = $this->model->getIdeas();
+    }
 
   }
+
+
+
 
  ?>

@@ -7,8 +7,12 @@
   $arrayUrl = explode('/',$_GET['action']);
 
 
-  if(){
-    
+  if($arrayUrl[0]== ''){
+    $controller->home();
+  }else{
+    if(){
+
+    }
   }
 
  ?>
