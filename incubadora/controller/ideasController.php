@@ -13,9 +13,20 @@
       $this->model = new ideasModel();
     }
 
-    function newIdea()
-    {
+    function newIdea(){
       $newIdea= $this->model
+
+    }
+
+    function editTarea(){
+
+    }
+
+    function deleteTarea(){
+
+    }
+
+    function getRanking(){
 
     }
 

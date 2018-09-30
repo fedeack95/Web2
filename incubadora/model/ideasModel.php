@@ -18,12 +18,26 @@
     , 'root', '');
   }
 
-
-
     function getIdeas(){
       $ideas = $this->db->prepare( "select * from idea");
       $ideas->execute();
       return $ideas->fetchAll(PDO::FETCH_OBJ);
+
+    }
+
+    function getIdea($id){
+
+    }
+
+    function updateTarea($id){
+
+    }
+
+    function createTarea(){
+
+    }
+
+    function deleteTarea($id){
 
     }
 

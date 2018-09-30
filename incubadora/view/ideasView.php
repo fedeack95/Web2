@@ -8,9 +8,21 @@ class IdeasView
 
 
 
-  function show($ideas){
+  function showIdeas($ideas){
     foreach($ideas as $idea)
       echo "<p>$idea->name</p>";
+  }
+
+   function createIdeas(){
+
+   }
+
+   function editTarea(){
+
+   }
+
+  function showRankingIdea(){
+
   }
    function mostrarWeb($ideas){
 
@@ -86,7 +98,7 @@ class IdeasView
 
   }
 
-  function 
+  
 }
 
 
