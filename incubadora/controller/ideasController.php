@@ -14,11 +14,23 @@
     }
 
     function newIdea(){
-      $newIdea= $this->model
+      $name = $_POST["nameForm"];
+      $theme = $_POST["themeForm"];
+      $impact = $_POST["impactForm"];
+      $description = $_POST["descriptionForm"];
+
+
+      $this->model->createTarea($name,$theme,$impact,$description);
+
+      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+
 
     }
 
-    function editTarea(){
+    function editTarea($idea){
+     $id_idea = $idea[0];
+     $idea = $this->model->GetIdea($id_idea);
+     $this->view->ShowEditIdea("Editar idea", $idea);
 
     }
 

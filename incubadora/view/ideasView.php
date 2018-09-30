@@ -1,10 +1,19 @@
 <?php
 
-/**
- *
- */
+require_once "./"
+
 class IdeasView
 {
+  
+
+  function __construct()
+  {
+
+
+    $this->view = new TareasView();
+    $this->model = new TareasModel();
+
+  }
 
 
 
@@ -14,10 +23,19 @@ class IdeasView
   }
 
    function createIdeas(){
+    $name = $_POST["nameForm"];
+    $theme = $_POST["themeForm"];
+    $impact = $_POST["impactForm"];
+    $description = $_POST["descriptionForm"];
+
+
+    $this->model->InsertarTarea($name,$theme,$impact,$description);
+
+    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
 
    }
 
-   function editTarea(){
+   function showEditTarea(){
 
    }
 
@@ -98,7 +116,7 @@ class IdeasView
 
   }
 
-  
+
 }
 
 
