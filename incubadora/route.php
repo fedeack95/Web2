@@ -6,9 +6,12 @@
   $controller = new ideasController();
   $arrayUrl = explode('/',$_GET['action']);
 
+  switch ($arrayUrl[0]){
+    case 'home' :
+      $controller->home();
+    break;
+    case 'newIdea':
 
-  if($arrayUrl[0]== ''){
-    $controller->home();
+
   }
-
  ?>

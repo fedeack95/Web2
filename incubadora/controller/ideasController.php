@@ -13,16 +13,17 @@
       $this->model = new ideasModel();
     }
 
-    function crear()
+    function newIdea()
     {
-
+      $newIdea= $this->model
 
     }
 
     function home(){
       $ideas = $this->model->getIdeas();
-      $this->view->show($ideas);
+      $this->view->mostrarWeb($ideas);
     }
+
 
   }
 
