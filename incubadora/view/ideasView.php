@@ -3,16 +3,14 @@
 /**
  *
  */
-class ClassName extends AnotherClass
+class IdeasView
 {
 
-  function __construct(argument)
-  {
-    // code...
-  }
 
-  function show(){
-    
+
+  function show($ideas){
+    foreach($ideas as $idea)
+      echo $idea->name;
   }
 }
 

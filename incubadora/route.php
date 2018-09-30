@@ -1,6 +1,6 @@
 <?php
   require_once "view\ideasView.php";
-  require_once "controller/ideasController.php"
+  require_once "controller\ideasController.php";
 
 
   $controller = new ideasController();
@@ -9,10 +9,6 @@
 
   if($arrayUrl[0]== ''){
     $controller->home();
-  }else{
-    if(){
-
-    }
   }
 
  ?>

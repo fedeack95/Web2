@@ -2,12 +2,12 @@
   require_once "./view/ideasView.php";
   require_once "./model/ideasModel.php";
 
-  class ClassName extends AnotherClass
+  class IdeasController
   {
     private $view;
     private $model;
 
-    function __construct(argument)
+    function __construct()
     {
       $this->view = new ideasView();
       $this->model = new ideasModel();
@@ -19,8 +19,9 @@
 
     }
 
-    function home (){
+    function home(){
       $ideas = $this->model->getIdeas();
+      $this->view->show($ideas);
     }
 
   }

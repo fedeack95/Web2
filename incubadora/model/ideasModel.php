@@ -2,20 +2,28 @@
   /**
    *
    */
-  class ClassName extends AnotherClass
+  class ideasModel
   {
     private $db;
-    function __construct(argument)
+
+    function __construct()
     {
 
       $this->db= $this->Connect();
     }
 
+    function Connect(){
+    return new PDO('mysql:host=localhost;'
+    .'dbname=ideas;charset=utf8'
+    , 'root', '');
+  }
+
+
 
     function getIdeas(){
-      $ideas = $this->db->prepare( "select * from tarea");
+      $ideas = $this->db->prepare( "select * from idea");
       $ideas->execute();
-      return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+      return $ideas->fetchAll(PDO::FETCH_OBJ);
 
     }
 
