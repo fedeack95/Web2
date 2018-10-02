@@ -13,7 +13,7 @@
     }
 
     function Connect(){
-    return new PDO('mysql:host=localhost;'
+      return new PDO('mysql:host=localhost;'
     .'dbname=ideas;charset=utf8'
     , 'root', '');
   }
@@ -28,18 +28,21 @@
     function getIdea($id){
 
     }
+  
 
-    function updateTarea($id){
+    function updateIdea($id){
 
     }
 
-    function createTarea($name,$theme,$impact,$description){
+    function createIdea($name,$theme,$impact,$description){
       $sentence = $this->db->prepare("INSERT INTO idea(name, theme, impact, description) VALUES(?,?,?,?)");
       $sentence -> execute(array($name,$theme,$impact,$description));
 
     }
 
-    function deleteTarea($id){
+    function modelDeleteIdea($id){
+      $sentence = $this->db->prepare( "delete from idea where id=?");
+      $sentence->execute(array($id));
 
     }
 

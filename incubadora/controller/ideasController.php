@@ -27,14 +27,16 @@
 
     }
 
-    function editTarea($idea){
+    function editIdea($idea){
      $id_idea = $idea[0];
      $idea = $this->model->GetIdea($id_idea);
      $this->view->ShowEditIdea("Editar idea", $idea);
 
     }
 
-    function deleteTarea(){
+    function deleteIdea($param){
+    $this->model->modelDeleteIdea($param[0]);
+    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
 
     }
 
