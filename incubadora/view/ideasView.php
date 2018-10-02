@@ -1,16 +1,17 @@
 <?php
-
+require('./libs/Smarty.class.php');
 require_once "./"
 
 class IdeasView
 {
-  
+  private $model;
+  private $smarty
 
   function __construct()
   {
 
 
-    $this->view = new TareasView();
+    $this->smarty= new Smarty();
     $this->model = new TareasModel();
 
   }
@@ -18,8 +19,8 @@ class IdeasView
 
 
   function showIdeas($ideas){
-    foreach($ideas as $idea)
-      echo "<p>$idea->name</p>";
+    $smarty->assign('ideas',$ideas);
+    $smarty->display('./templates/home.tpl');
   }
 
    function createIdeas(){
