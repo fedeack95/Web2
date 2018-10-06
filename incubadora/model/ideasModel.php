@@ -28,7 +28,7 @@
     function getIdea($id){
 
     }
-  
+
 
     function updateIdea($id){
 
@@ -40,8 +40,8 @@
 
     }
 
-    function modelDeleteIdea($id){
-      $sentence = $this->db->prepare( "delete from idea where id=?");
+    function deleteIdea($id){
+      $sentence = $this->db->prepare( "delete from idea where id_idea=?");
       $sentence->execute(array($id));
 
     }

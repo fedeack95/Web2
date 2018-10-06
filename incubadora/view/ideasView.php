@@ -1,5 +1,5 @@
 <?php
-require('libs/Smarty.class.php');
+require('./libs/Smarty.class.php');
 
 class IdeasView
 {
@@ -19,7 +19,7 @@ class IdeasView
 
    $this->smarty->assign('title',$title); // El 'Titulo' del assign puede ser cualquier valor
    $this->smarty->assign('ideas',$ideas);
-   //$smarty->debugging = true;
+   $this->smarty->debugging = true;
    $this->smarty->display('templates/home.tpl');
  }
 
