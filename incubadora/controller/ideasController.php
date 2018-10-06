@@ -46,7 +46,7 @@
 
     function home(){
       $ideas = $this->model->getIdeas();
-      $this->view->mostrarWeb($ideas);
+      $this->view->show("prueba",$ideas);
     }
 
 

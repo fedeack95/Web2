@@ -1,4 +1,6 @@
 <?php
+ /*require_once "./view/ideasView.php";
+ require_once "./model/ideasModel.php";
 
   class UserController extends Controller{
 
@@ -13,6 +15,6 @@
     }
 
   }
-
+*/
 
  ?>

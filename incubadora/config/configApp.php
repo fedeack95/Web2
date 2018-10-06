@@ -12,7 +12,7 @@ class ConfigApp
     public static $ACTIONS = [
       ''=> 'ideasController#home',
       'home'=> 'ideasController#home',
-      'delete'=> 'ideasControllerController#deleteIdea',
+      'delete'=> 'ideasController#deleteIdea',
       'edit'=> 'ideasController#editIdea',
       'created' => 'ideasController#newIdea',
       'guardarEditar'=> 'TareasController#GuardarEditarTarea',

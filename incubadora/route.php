@@ -3,7 +3,7 @@ require_once "config/configApp.php";
 require_once "controller\ideasController.php";
 require_once "controller\UserController.php";
 require_once "controller\LoginController.php";
-require_once "controller\SecuredController.php";
+require_once "controller\Controller.php";
 
 function parseURL($url)
 {
@@ -33,7 +33,7 @@ if(isset($_GET['action'])){
             echo $controller->$metodo();
         }
     }else{
-      $controller =  new TareasController();
+      $controller =  new ideasController();
       echo $controller->home();
     }
 }
