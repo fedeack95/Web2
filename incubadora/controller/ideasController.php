@@ -13,14 +13,14 @@
       $this->model = new ideasModel();
     }
 
-    function newIdea(){
-      $name = $_POST["nameForm"];
+    function newIdea($param){
+      /*$name = $_POST["nameForm"];
       $theme = $_POST["themeForm"];
       $impact = $_POST["impactForm"];
       $description = $_POST["descriptionForm"];
+      */
 
-
-      $this->model->createTarea($name,$theme,$impact,$description);
+      $this->model->createIdea($param[0],$param[1],$param[2],$param[3]);
 
       header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
 
