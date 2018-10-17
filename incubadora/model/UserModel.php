@@ -14,24 +14,33 @@ class UserModel
         , 'root', '');
     }
 
-    public function getUser($username) {
-        $sentencia = $this->db_connection->prepare( "select * from usuario "
-                ." WHERE username = ?");
-        $sentencia->execute(array($username));
-        return $sentencia->fetch(PDO::FETCH_OBJ);
-    }
-
-    public function insertUser($name, $lastName, $email, $about, $image){
+    public function insertUser($name, $lastName, $email, $about, $userId, $pass){
       //preparar la sentecia SQL con PDO seguro (los ?)
         $sentencia = $this->db_connection->prepare(
-            "INSERT INTO user(name, lastName, email, about, avatar) VALUES(?,?)");
+            "INSERT INTO user(name, lastName, email, about, userId, password) VALUES(?,?,?,?,?,?)");
         //pasar los parametros y ejecutar en la BBDD
-        $sentencia->execute(array($name, $lastName, $email, $about, $image));
+        $sentencia->execute(array($name, $lastName, $email, $about, $userId, $pass));
 
     }
 
+    public function getUsers(){
+
+          $sentencia = $this->db_connection->prepare( "select * from users");
+          $sentencia->execute();
+          return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getUser($user){
+
+        $sentencia = $this->db_connection->prepare( "select * from user where userId=? limit 1");
+        $sentencia->execute(array($user));
+        return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+
   }
-}
+
 
 
  ?>

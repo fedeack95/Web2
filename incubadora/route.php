@@ -32,7 +32,15 @@ if(isset($_GET['action'])){
         else{
             echo $controller->$metodo();
         }
-    }else{
+    }
+    // else if(isset($_GET['action']) == "newuser" ){
+    //   $controller =  new UserController();
+    //   echo $controller->userForm();
+    // }else if(isset($_GET['action']) == "saveuser" ){
+    //   $controller =  new UserController();
+    //   echo $controller->insertUser();
+    // }
+    else{
       $controller =  new ideasController();
       echo $controller->home();
     }
