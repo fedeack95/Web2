@@ -1,6 +1,4 @@
 
-
-
 let url = "https://web-unicen.herokuapp.com/api/groups/GasSMart/ideas";
 function uploadIdea(){
   let destiny = document.getElementById('dashboard-section');
@@ -40,3 +38,4 @@ function uploadIdea(){
       }
     )
   }
+  

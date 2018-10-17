@@ -6,49 +6,54 @@
   {
     private $db;
 
-    function __construct()
+    public function __construct()
     {
 
       $this->db= $this->Connect();
     }
 
-    function Connect(){
+    public function Connect(){
       return new PDO('mysql:host=localhost;'
     .'dbname=ideas;charset=utf8'
     , 'root', '');
   }
 
-    function getIdeas(){
+    public function getIdeas(){
       $ideas = $this->db->prepare( "select * from idea");
       $ideas->execute();
-      return $ideas->fetchAll(PDO::FETCH_OBJ);
+      return $ideas->fetchAll(PDO::FETCH_ASSOC);
 
     }
 
-    function getIdea($id){
-
+    public function getIdea($id){
+      $ideas = $this->db->prepare( "select * from idea where id_idea=?");
+      $ideas->execute(array($id));
+      return $ideas->fetch(PDO::FETCH_ASSOC);
     }
 
 
-    function updateIdea($id){
+    public function updateIdea($id){
 
     }
 
-    function createIdea($name,$theme,$impact,$description){
+    public function createIdea($name,$theme,$impact,$description){
       $sentence = $this->db->prepare("INSERT INTO idea(name, theme, impact, description) VALUES(?,?,?,?)");
-      $sentence -> execute(array($name,$theme,$impact,$description));
-
+      //$sentence->execute(array($name,$theme,$impact,$description));
+      $sentence->execute(array("lalal 2","lalal 2","lalal 2","lalal 2"));
     }
 
-    function deleteIdea($id){
+    public function deleteIdea($id){
       $sentence = $this->db->prepare( "delete from idea where id_idea=?");
       $sentence->execute(array($id));
 
     }
 
+    function safeEditIdea($name,$theme,$impact,$description,$id_idea){
+      $sentence = $this->db->prepare( "update idea set name = ?, theme = ?, impact = ?, description = ? where id_idea=?");
+      $sentence->execute(array($name,$theme,$impact,$description,$id_idea));
   }
 
-
+}
 
 
 ?>

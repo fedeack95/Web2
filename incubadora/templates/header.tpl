@@ -34,7 +34,7 @@
                 <a class="nav-link" href="#" id="ranking-tab">Ranking</a>
               </li>
               <li class="nav-item  border">
-                <a class="nav-link" href="#" id="newidea-tab">New Idea</a>
+                <a class="nav-link" href="created" id="newidea-tab">New Idea</a>
               </li>
               <li class="nav-item border">
                 <a class="nav-link" href="#" id="newuser-tab">New User</a>
