@@ -17,6 +17,8 @@ class ConfigApp
       'created' => 'ideasController#newIdea',
       'guardarEditar'=> 'TareasController#GuardarEditarTarea',
       'mostrarUsuarios'=> 'UsuarioController#MostrarUsuario',
+      'createUser' => 'UserController#userForm',
+      'saveUser' => 'UserController#createUser',
       'login'=> 'LoginController#login',
       'logout'=> 'LoginController#logout',
       'verificarLogin' => 'LoginController#verificarLogin'

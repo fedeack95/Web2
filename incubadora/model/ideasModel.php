@@ -14,7 +14,7 @@
 
     function Connect(){
       return new PDO('mysql:host=localhost;'
-    .'dbname=ideas;charset=utf8'
+    .'dbname=incubadora;charset=utf8'
     , 'root', '');
   }
 
