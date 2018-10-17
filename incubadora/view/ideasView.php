@@ -1,5 +1,5 @@
 <?php
-require('./libs/Smarty.class.php');
+require('libs/Smarty.class.php');
 
 class IdeasView
 {
@@ -19,7 +19,7 @@ class IdeasView
 
    $this->smarty->assign('title',$title); // El 'Titulo' del assign puede ser cualquier valor
    $this->smarty->assign('ideas',$ideas);
-   $this->smarty->debugging = true;
+   //$this->smarty->debugging = true;
    $this->smarty->display('templates/home.tpl');
  }
 
@@ -31,6 +31,12 @@ class IdeasView
 
    //$smarty->debugging = true;
    $this->smarty->display('templates/showEditIdea.tpl');
+ }
+
+ function showNewIdea($title){
+   $this->smarty->assign('title',$title);
+   $this->smarty->assign('home',"http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+   $this->smarty->display('templates/newIdea.tpl');
  }
 
 

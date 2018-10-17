@@ -20,10 +20,10 @@ if(isset($_GET['action'])){
    #$urlData[PARAMS] = [1,2,3,4]
 
     $urlData = parseURL($_GET['action']);
-    $action = $urlData[ConfigApp::$ACTION]; //home
+    $action = $urlData[ConfigApp::$ACTION];
     if(array_key_exists($action,ConfigApp::$ACTIONS)){
         $params = $urlData[ConfigApp::$PARAMS];
-        $action = explode('#',ConfigApp::$ACTIONS[$action]); //Array[0] -> TareasController [1] -> BorrarTarea
+        $action = explode('#',ConfigApp::$ACTIONS[$action]);
         $controller =  new $action[0]();
         $metodo = $action[1];
         if(isset($params) &&  $params != null){
