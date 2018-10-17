@@ -64,6 +64,11 @@
 
     }
 
+    public function showIdea($param){
+      $id_idea= $param[0];
+      $idea = $this->model-> getIdea($id_idea);
+      $this->view->showIdea($idea);
+    }
 
     public function deleteIdea($param){
     $this->model->deleteIdea($param[0]);

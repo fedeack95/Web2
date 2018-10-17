@@ -1,3 +1,4 @@
+
 {include file="header.tpl"}
 
 <div class="new_idea row">

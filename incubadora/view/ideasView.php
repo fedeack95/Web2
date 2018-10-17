@@ -39,6 +39,13 @@ class IdeasView
    $this->smarty->display('templates/newIdea.tpl');
  }
 
+function showIdea($idea){
+  $this->smarty->assign('idea',$idea);
+  $this->smarty->assign('home',"http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+
+  //$smarty->debugging = true;
+  $this->smarty->display('templates/showIdea.tpl');
+}
 
 
 

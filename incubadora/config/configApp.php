@@ -14,6 +14,7 @@ class ConfigApp
       'home'=> 'ideasController#home',
       'delete'=> 'ideasController#deleteIdea',
       'edit'=> 'ideasController#editIdea',
+      'view'=> 'ideasController#showIdea',
       'ideaForm' => 'ideasController#newIdea',
       'safeEdit'=> 'ideasController#safeEdit',
       'mostrarUsuarios'=> 'UsuarioController#MostrarUsuario',

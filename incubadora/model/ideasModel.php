@@ -14,7 +14,7 @@
 
     public function Connect(){
       return new PDO('mysql:host=localhost;'
-    .'dbname=ideas;charset=utf8'
+    .'dbname=incubadora;charset=utf8'
     , 'root', '');
   }
 
@@ -40,6 +40,7 @@
       $sentence = $this->db->prepare("INSERT INTO idea(name, theme, impact, description) VALUES(?,?,?,?)");
       //$sentence->execute(array($name,$theme,$impact,$description));
       $sentence->execute(array("lalal 2","lalal 2","lalal 2","lalal 2"));
+
     }
 
     public function deleteIdea($id){
