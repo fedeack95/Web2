@@ -44,10 +44,20 @@
        }
       //$model->insertUser($userName, $lastName, $email, $userAbout);
       $this->model->insertUser($userName, $lastName, $email, $userAbout, $userId, $pass);
-      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]).'/showUsers');
 
     }
 
+    public function showUsers(){
+      $Users = $this->model->getUsers();
+      $this->view->showUsers("List of users", $Users);
+    }
+
+    public function deleteUser($params){
+      $this->model->deleteUser($params[0]);
+      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]).'/showUsers');
+      //$this->showUsers();
+    }
 
   }
 

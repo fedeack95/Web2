@@ -41,8 +41,7 @@
 
     public function createIdea($name,$theme,$impact,$description){
       $sentence = $this->db->prepare("INSERT INTO idea(name, theme, impact, description) VALUES(?,?,?,?)");
-      $sentence->execute(array($name,$theme,$impact,$description));
-
+      $sentence ->execute(array($name,$theme,$impact,$description));
 
     }
 

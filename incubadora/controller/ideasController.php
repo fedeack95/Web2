@@ -1,16 +1,29 @@
   <?php
   require_once "./view/ideasView.php";
   require_once "./model/ideasModel.php";
-
+  require_once "./model/likeModel.php";
+  require_once "./model/donnationModel.php";
+  require_once "./model/commentModel.php";
+  require_once "./model/betModel.php";
   class IdeasController
   {
     private $view;
     private $model;
+    private $modelLike;
+    private $modelDonnation;
+    private $commentModel;
+    private $betModel;
+    public function __construct()
 
-    function __construct()
     {
+      //parent::__construct();
       $this->view = new ideasView();
       $this->model = new ideasModel();
+      $this->modelLike = new likeModel();
+      $this->modelDonnation  = new donnationModel();
+      $this->commentModel = new commentModel();
+      $this->betModel = new betModel();
+
     }
     public function newIdea()
     {
@@ -24,12 +37,11 @@
         $impact = $_POST["impact"];
         $description = $_POST["description"];
 
-
-      $this->model->createIdea($name,$theme,$impact,$description);
+        $this->model->createIdea($name,$theme,$impact,$description);
 
       header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
 
-      
+
 
     }
 
@@ -55,8 +67,12 @@
 
     public function showIdea($param){
       $id_idea= $param[0];
+      $likes = $this->modelLike->getLike($id_idea);
       $idea = $this->model-> getIdea($id_idea);
-      $this->view->showIdea($idea["name"],$idea);
+      $donnation = $this->modelDonnation->getDonnation($id_idea);
+      $comment = $this->commentModel->getComments($id_idea);
+      $bet = $this->betModel->getBet($id_idea);
+      $this->view->showIdea($idea["name"],$idea,$likes,$donnation,$comment,$bet);
       $this->model->close();
     }
 

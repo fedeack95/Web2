@@ -19,6 +19,13 @@
   }
 
 
+  public function getDonnation($id){
+    $likes = $this->db->prepare( "select sum(quantity)  from donnation where
+    id_idea =?");
+    $likes->execute(array($id));
+    return $likes->fetch(PDO::FETCH_ASSOC);
+  }
+
 }
 
 

@@ -31,16 +31,19 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item active  border" id="dashboard-tab">
-                <a class="nav-link" href="#">Dashboard<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="incubadora">Dashboard<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item  border">
                 <a class="nav-link" href="#" id="ranking-tab">Ranking</a>
               </li>
               <li class="nav-item  border">
-                <a class="nav-link" href="created" id="newidea-tab">New Idea</a>
+                <a class="nav-link" href="ideaForm" id="newidea-tab">New Idea</a>
               </li>
               <li class="nav-item border">
-                <a class="nav-link" href="#" id="newuser-tab">New User</a>
+                <a class="nav-link" href="showUsers" id="newuser-tab">Users</a>
+              </li>
+              <li class="nav-item border">
+                <a class="nav-link" href="createUser" id="newuser-tab">New User</a>
               </li>
               <li class="nav-item border">
                 <a class="nav-link" href="#" id="rules-tab">Rules</a>

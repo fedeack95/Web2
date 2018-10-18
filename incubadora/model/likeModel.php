@@ -18,7 +18,12 @@
     , 'root', '');
   }
 
-
+  public function getLike($id){
+    $likes = $this->db->prepare( "select count(quantity)  from idea_like where
+    id_idea =?");
+    $likes->execute(array($id));
+    return $likes->fetch(PDO::FETCH_ASSOC);
+  }
 }
 
 

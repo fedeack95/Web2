@@ -18,6 +18,12 @@
     , 'root', '');
   }
 
+  public function getBet($id){
+    $bet = $this->db->prepare( "select sum(quantity) from bet where
+    id_idea =?");
+    $bet->execute(array($id));
+    return $bet->fetch(PDO::FETCH_ASSOC);
+  }
 
 }
 
