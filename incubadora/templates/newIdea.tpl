@@ -1,6 +1,6 @@
       {include file="header.tpl"}
       <div class="new_idea row">
-        <form action="saveNewIdea" method="POST" name="new-idea-form">
+        <form action="saveIdea" method="POST" name="new-idea-form">
           <div class="d-none d-md-block d-lg-block d-xl-block col-12 col-md-6 col-lg-6">
             <img  class="image-new-idea d-none d-md" src="/incubadora/img/ideas/new-idea.jpg" alt="logo" >
           </div>
@@ -11,28 +11,28 @@
                 <label class="label-form" for="">Name of your idea:</label>
               </div>
               <div class="col-12 column-right col-md-9">
-                <input type="text" name="nameForm" value="" id="idea-name">
+                <input type="text" name="name" value="" id="idea-name">
               </div>
 
               <div class="col-12 column-left col-md-3">
                 <label class="label-form" for="">What type of impact:</label>
               </div>
               <div class="col-12 column-right col-md-9">
-                <input type="text" name="impactForm" value="" id="idea-impact">
+                <input type="text" name="impact" value="" id="idea-impact">
               </div>
 
               <div class="col-12 column-left col-md-3">
                 <label class="label-form" for="">Theme about:</label>
               </div>
               <div class="col-12 column-right col-md-9">
-                <input type="text" name="themeForm" value="" id="idea-theme">
+                <input type="text" name="theme" value="" id="idea-theme">
               </div>
 
               <div class="col-12 column-left col-md-3">
                 <label class="label-form" for="">Description:</label>
               </div>
               <div class="col-12 column-right col-md-9">
-                <input name="descriptionForm" rows="15" cols="60" form="new-idea-form" id="idea-description"></input>
+                <input type="text" name="description" value=""  id="idea-description"></input>
               </div>
 
 

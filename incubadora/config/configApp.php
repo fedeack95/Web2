@@ -17,6 +17,7 @@ class ConfigApp
       'view'=> 'ideasController#showIdea',
       'ideaForm' => 'ideasController#newIdea',
       'safeEdit'=> 'ideasController#safeEdit',
+      'saveIdea' => 'ideasController#saveNewIdea',
       'mostrarUsuarios'=> 'UsuarioController#MostrarUsuario',
       'createUser' => 'UserController#userForm',
       'saveUser' => 'UserController#createUser',

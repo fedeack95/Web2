@@ -17,6 +17,9 @@
     .'dbname=incubadora;charset=utf8'
     , 'root', '');
   }
+    public function close (){
+      $this->db=null;
+    }
 
     public function getIdeas(){
       $ideas = $this->db->prepare( "select * from idea");
@@ -38,8 +41,8 @@
 
     public function createIdea($name,$theme,$impact,$description){
       $sentence = $this->db->prepare("INSERT INTO idea(name, theme, impact, description) VALUES(?,?,?,?)");
-      //$sentence->execute(array($name,$theme,$impact,$description));
-      $sentence->execute(array("lalal 2","lalal 2","lalal 2","lalal 2"));
+      $sentence->execute(array($name,$theme,$impact,$description));
+
 
     }
 

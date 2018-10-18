@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    
+
+    <base href="http://localhost/Web2/incubadora/" >
 
     <!-- Required meta tags -->
     <meta charset="utf-8">

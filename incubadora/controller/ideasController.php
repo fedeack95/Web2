@@ -19,28 +19,17 @@
 
 
     public function saveNewIdea(){
+        $name = $_POST["name"];
+        $theme = $_POST["theme"];
+        $impact = $_POST["impact"];
+        $description = $_POST["description"];
 
-
-      if(isset($_POST["nameForm"])){
-        $name = $_POST["nameForm"];
-      }
-
-      if(isset($_POST["themeForm"])){
-        $theme = $_POST["themeForm"];
-      }
-
-      if(isset($_POST["impactForm"])){
-        $impact = $_POST["impactForm"];
-      }
-
-      if(isset($_POST["descriptionForm"])){
-        $description = $_POST["descriptionForm"];
-      }
 
       $this->model->createIdea($name,$theme,$impact,$description);
 
       header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
 
+      
 
     }
 
@@ -48,7 +37,7 @@
      $id_idea = $param[0];
      $idea = $this->model->GetIdea($id_idea);
      $this->view->MostrarEditarTarea("Edit Idea", $idea);
-
+     $this->model->close();
 
     }
     public function safeEdit(){
@@ -61,19 +50,20 @@
     $this->model->safeEditIdea($name,$theme,$impact,$description,$id_idea);
 
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-
+    $this->model->close();
     }
 
     public function showIdea($param){
       $id_idea= $param[0];
       $idea = $this->model-> getIdea($id_idea);
-      $this->view->showIdea($idea);
+      $this->view->showIdea($idea["name"],$idea);
+      $this->model->close();
     }
 
     public function deleteIdea($param){
     $this->model->deleteIdea($param[0]);
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-
+    $this->model->close();
     }
 
     public function getRanking(){
@@ -83,6 +73,7 @@
     public function home(){
       $ideas = $this->model->getIdeas();
       $this->view->show("prueba",$ideas);
+      $this->model->close();
     }
 
 

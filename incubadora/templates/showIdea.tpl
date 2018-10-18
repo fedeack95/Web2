@@ -1,6 +1,6 @@
 
 
-  {include file="header.tpl"}
+{include file="header.tpl"}
         <section class="dashboard border col-12" id="dashboard-section">
           <div class="row">
 
