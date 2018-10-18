@@ -37,8 +37,8 @@
         $description = $_POST["descriptionForm"];
       }
 
-      $this->model->createIdea($name,$theme,$impact,$description);
-
+      $this->model->createIdea($name, $theme, $impact, $description);
+      
       header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
 
 

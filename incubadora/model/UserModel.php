@@ -25,7 +25,7 @@ class UserModel
 
     public function getUsers(){
 
-          $sentencia = $this->db_connection->prepare( "select * from users");
+          $sentencia = $this->db_connection->prepare( "select * from user");
           $sentencia->execute();
           return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -37,7 +37,10 @@ class UserModel
         return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
-
+    public function deleteUser($idUser){
+      $sentence = $this->db_connection->prepare( "delete from user where id_user=?");
+      $sentence->execute(array($idUser));
+    }
 
   }
 

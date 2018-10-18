@@ -32,7 +32,7 @@
                 <label class="label-form" for="">Description:</label>
               </div>
               <div class="col-12 column-right col-md-9">
-                <input name="descriptionForm" rows="15" cols="60" form="new-idea-form" id="idea-description"></input>
+                <input type="text" name="descriptionForm" value="" id="idea-description"></input>
               </div>
 
 

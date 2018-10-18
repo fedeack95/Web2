@@ -16,9 +16,11 @@ class ConfigApp
       'edit'=> 'ideasController#editIdea',
       'ideaForm' => 'ideasController#newIdea',
       'safeEdit'=> 'ideasController#safeEdit',
-      'mostrarUsuarios'=> 'UsuarioController#MostrarUsuario',
+      'saveNewIdea' => 'ideasController#saveNewIdea',
+      'showUsers'=> 'UserController#showUsers',
       'createUser' => 'UserController#userForm',
       'saveUser' => 'UserController#createUser',
+      'deleteUser' => 'UserController#deleteUser',
       'login'=> 'LoginController#login',
       'logout'=> 'LoginController#logout',
       'verificarLogin' => 'LoginController#verificarLogin'

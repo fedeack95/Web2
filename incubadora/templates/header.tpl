@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <!--base href="http://localhost/tpw2/incubadora" target="_blank" -->
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -34,10 +35,13 @@
                 <a class="nav-link" href="#" id="ranking-tab">Ranking</a>
               </li>
               <li class="nav-item  border">
-                <a class="nav-link" href="created" id="newidea-tab">New Idea</a>
+                <a class="nav-link" href="ideaForm" id="newidea-tab">New Idea</a>
               </li>
               <li class="nav-item border">
-                <a class="nav-link" href="#" id="newuser-tab">New User</a>
+                <a class="nav-link" href="showUsers" id="newuser-tab">Users</a>
+              </li>
+              <li class="nav-item border">
+                <a class="nav-link" href="createUser" id="newuser-tab">New User</a>
               </li>
               <li class="nav-item border">
                 <a class="nav-link" href="#" id="rules-tab">Rules</a>
