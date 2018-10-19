@@ -23,9 +23,11 @@ class ConfigApp
       'createUser' => 'UserController#userForm',
       'saveUser' => 'UserController#createUser',
       'deleteUser' => 'UserController#deleteUser',
+      'ranking' => 'rankingController#getRanking',
       'login'=> 'LoginController#login',
       'logout'=> 'LoginController#logout',
-      'verificarLogin' => 'LoginController#verificarLogin'
+      'verificarLogin' => 'LoginController#verificarLogin',
+
     ];
 
 }

@@ -15,7 +15,7 @@ class UserView
   public function showForm($title){
     $this->smarty->assign('title',$title); // El 'Titulo' del assign puede ser cualquier valor
     //$this->smarty->assign('ideas',"Un idea");
-    $this->smarty->debugging = true;
+    //  $this->smarty->debugging = true;
     $this->smarty->display('templates/userForm.tpl');
   }
 

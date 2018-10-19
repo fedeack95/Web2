@@ -39,11 +39,10 @@ class LoginController
           if ($pass == $dbUser[0]["password"]){
               //mostrar lista de ideas
               session_start();
-              $_SESSION["User"] = $user;
+              $_SESSION["User"] = $dbUser;
               header(HOME);
           }else{
             $this->view->mostrarLogin("Contraseña incorrecta");
-
           }
       }else{
         //No existe el usario

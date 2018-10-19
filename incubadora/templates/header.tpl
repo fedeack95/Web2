@@ -34,7 +34,7 @@
                 <a class="nav-link" href="incubadora">Dashboard<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item  border">
-                <a class="nav-link" href="#" id="ranking-tab">Ranking</a>
+                <a class="nav-link" href="ranking" id="ranking-tab">Ranking</a>
               </li>
               <li class="nav-item  border">
                 <a class="nav-link" href="ideaForm" id="newidea-tab">New Idea</a>
@@ -46,7 +46,7 @@
                 <a class="nav-link" href="createUser" id="newuser-tab">New User</a>
               </li>
               <li class="nav-item border">
-                <a class="nav-link" href="#" id="rules-tab">Rules</a>
+                <a class="nav-link" href="logout" id="rules-tab">LOGOUT</a>
               </li>
             </ul>
           </div>

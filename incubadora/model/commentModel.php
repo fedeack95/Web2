@@ -18,13 +18,18 @@
     , 'root', '');
   }
   public function getComments($id){
-    $comment = $this->db->prepare( "select text from comment where
+    $comments = $this->db->prepare( "select text from comment where
     id_idea =?");
-    $comment->execute(array($id));
-    return $comment->fetch(PDO::FETCH_ASSOC);
+    $comments->execute(array($id));
+    return $comments->fetchAll(PDO::FETCH_ASSOC);
   }
+  public function getCountComments($id){
+    $comments = $this->db->prepare( "select count(text) from comment where
+    id_idea =?");
+    $comments->execute(array($id));
+    return $comments->fetch(PDO::FETCH_ASSOC);
 
 }
 
-
+}
 ?>
