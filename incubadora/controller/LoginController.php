@@ -32,8 +32,10 @@ class LoginController
   function verificarLogin(){
       $user = $_POST["usuarioId"];
       $pass = $_POST["passwordId"];
-      $dbUser = $this->model->getUser($user);
-
+      $dbUser = $this->model->getUserByUserId($user);
+      var_dump($user);
+      var_dump($pass);
+      var_dump($dbUser);
       if(isset($dbUser)){
           //if (password_verify($pass, $dbUser[7]["password"])){
           if ($pass == $dbUser[0]["password"]){
