@@ -36,6 +36,12 @@ class UserModel
         $sentencia->execute(array($user));
         return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
+    
+    public function getUserByUserId($user){
+        $sentencia = $this->db_connection->prepare( "select * from user where userId=? limit 1");
+        $sentencia->execute(array($user));
+        return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     public function deleteUser($idUser){
       $sentence = $this->db_connection->prepare( "delete from user where id_user=?");
