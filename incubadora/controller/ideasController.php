@@ -5,10 +5,12 @@
   require_once "./model/donnationModel.php";
   require_once "./model/commentModel.php";
   require_once "./model/betModel.php";
+  require_once "./controller/LoginController.php";
   class IdeasController
   {
     private $view;
     private $model;
+    private $controllerLogin;
     private $modelLike;
     private $modelDonnation;
     private $commentModel;
@@ -23,6 +25,7 @@
       $this->modelDonnation  = new donnationModel();
       $this->commentModel = new commentModel();
       $this->betModel = new betModel();
+      $this->controllerLogin = new LoginController();
 
     }
     public function newIdea()
@@ -36,10 +39,19 @@
         $theme = $_POST["theme"];
         $impact = $_POST["impact"];
         $description = $_POST["description"];
+        session_start();
+        if(isset($_SESSION["User"])){
+          $idUser = ($_SESSION["User"])[0]["id_user"];
+          //var_dump($idUser);
+          $this->model->createIdea($name,$theme,$idUser, $impact,$description);
+          header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+        }else{
+          $this->controllerLogin->Login();
 
-        $this->model->createIdea($name,$theme,$impact,$description);
+        }
 
-      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+
+
 
 
 
@@ -70,9 +82,9 @@
       $likes = $this->modelLike->getLike($id_idea);
       $idea = $this->model-> getIdea($id_idea);
       $donnation = $this->modelDonnation->getDonnation($id_idea);
-      $comment = $this->commentModel->getComments($id_idea);
+      $comments = $this->commentModel->getComments($id_idea);
       $bet = $this->betModel->getBet($id_idea);
-      $this->view->showIdea($idea["name"],$idea,$likes,$donnation,$comment,$bet);
+      $this->view->showIdea($idea["name"],$idea,$likes,$donnation,$comments,$bet);
       $this->model->close();
     }
 

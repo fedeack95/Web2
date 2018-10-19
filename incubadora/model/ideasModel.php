@@ -33,15 +33,25 @@
       $ideas->execute(array($id));
       return $ideas->fetch(PDO::FETCH_ASSOC);
     }
+    public function getIdeaName($id){
+      $ideaName = $this->db->prepare( "select name from idea where id_idea=?");
+      $ideaName->execute(array($id));
+      return $ideaName->fetch(PDO::FETCH_ASSOC);
+    }
+    public function getIdeaTheme($id){
+      $ideaTheme = $this->db->prepare( "select theme from idea where id_idea=?");
+      $ideaTheme->execute(array($id));
+      return $ideaTheme->fetch(PDO::FETCH_ASSOC);
+    }
 
 
     public function updateIdea($id){
 
     }
 
-    public function createIdea($name,$theme,$impact,$description){
-      $sentence = $this->db->prepare("INSERT INTO idea(name, theme, impact, description) VALUES(?,?,?,?)");
-      $sentence ->execute(array($name,$theme,$impact,$description));
+    public function createIdea($name,$theme,$idUser,$impact,$description){
+      $sentence = $this->db->prepare("INSERT INTO idea(name, theme,id_user, impact, description) VALUES(?,?,?,?,?)");
+      $sentence ->execute(array($name,$theme,$idUser,$impact,$description));
 
     }
 
