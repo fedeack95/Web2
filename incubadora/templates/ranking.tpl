@@ -1,4 +1,18 @@
 {include file="header.tpl"}
+<div class="row">
+  <div class="col-12">
+    <form class="" action="rankingTheme" method="post">
+    <select name = "theme" >
+      <option value="social">Social</option>
+      <option value="politics">Politics</option>
+      <option value="leisure">Leisure</option>
+      <option value="other">Other</option>
+    </select>
+    <button type="submit" name="button">Filter</button>
+      </form>
+    </div>
+  </div>
+
 
     <div class="ranking col-12">
       <table>

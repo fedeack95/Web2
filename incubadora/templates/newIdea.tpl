@@ -25,7 +25,12 @@
                 <label class="label-form" for="">Theme about:</label>
               </div>
               <div class="col-12 column-right col-md-9">
-                <input type="text" name="theme" value="" id="idea-theme">
+              <select name="theme">
+                <option value="social">Social</option>
+                <option value="politics">Politics</option>
+                <option value="leisure">Leisure</option>
+                <option value="other">Other</option>
+              </select>
               </div>
 
               <div class="col-12 column-left col-md-3">

@@ -24,6 +24,7 @@ class ConfigApp
       'saveUser' => 'UserController#createUser',
       'deleteUser' => 'UserController#deleteUser',
       'ranking' => 'rankingController#getRanking',
+      'rankingTheme' => 'rankingController#generateRankingTheme',
       'login'=> 'LoginController#login',
       'logout'=> 'LoginController#logout',
       'verificarLogin' => 'LoginController#verificarLogin',

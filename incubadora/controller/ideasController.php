@@ -42,9 +42,9 @@
         session_start();
         if(isset($_SESSION["User"])){
           $idUser = ($_SESSION["User"])[0]["id_user"];
-          //var_dump($idUser);
+
           $this->model->createIdea($name,$theme,$idUser, $impact,$description);
-          header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+
         }else{
           $this->controllerLogin->Login();
 
@@ -70,11 +70,10 @@
        $theme = $_POST["themeForm"];
        $impact = $_POST["impactForm"];
        $description = $_POST["descriptionForm"];
+       $this->model->safeEditIdea($name,$theme,$impact,$description,$id_idea);
+       $this->view->home();
 
-    $this->model->safeEditIdea($name,$theme,$impact,$description,$id_idea);
-
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-    $this->model->close();
+       $this->model->close();
     }
 
     public function showIdea($param){
@@ -90,17 +89,19 @@
 
     public function deleteIdea($param){
     $this->model->deleteIdea($param[0]);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+     $this->view->home();
     $this->model->close();
     }
 
-    public function getRanking(){
+    public function getIdeaTheme($theme){
+      $ideas = $this->model->getIdeas();
 
+      $this->model->close();
     }
 
     public function home(){
       $ideas = $this->model->getIdeas();
-      $this->view->show("prueba",$ideas);
+      $this->view->show("HOME",$ideas);
       $this->model->close();
     }
 

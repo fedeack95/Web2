@@ -19,7 +19,7 @@ class LoginController
 
   function login(){
 
-    $this->view->mostrarLogin();
+    $this->view->mostrarLogin($this->Titulo);
 
   }
 
@@ -32,7 +32,7 @@ class LoginController
   function verificarLogin(){
       $user = $_POST["usuarioId"];
       $pass = $_POST["passwordId"];
-      $dbUser = $this->model-> getUserByUserId($user);
+      $dbUser = $this->model->getUserByUserId($user);
 
       if(isset($dbUser)){
           //if (password_verify($pass, $dbUser[7]["password"])){
@@ -42,7 +42,7 @@ class LoginController
               $_SESSION["User"] = $dbUser;
               header(HOME);
           }else{
-            $this->view->mostrarLogin("Contraseña incorrecta");
+            $this->view->mostrarLogin($this->Titulo,"Contraseña incorrecta");
           }
       }else{
         //No existe el usario

@@ -4,16 +4,12 @@ require('libs/Smarty.class.php');
 class IdeasView
 {
 
-  private $smarty;
+    private $smarty;
 
-  function __construct()
-  {
-
-
-    $this->smarty= new Smarty();
-
-
-  }
+    function __construct()
+    {
+      $this->smarty= new Smarty();
+    }
 
   function show($title, $ideas){
 
@@ -53,6 +49,9 @@ function showIdea($title,$idea,$like,$donnation,$comments,$bet){
 }
 
 
+public function home(){
+   header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+}
 
 }
 

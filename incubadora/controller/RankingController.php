@@ -47,9 +47,23 @@ class rankingController
 
 
   }
+  public function generateRankingTheme(){
+    $theme=$_POST["theme"];
+    $ideas = $this->model->getIdeasTheme($theme);
+
+    $ranking;
+    $counter=0;
+    foreach ($ideas as $idea ) {
+      $ranking[$counter]= $this->getRankedIdea($idea['id_idea']);
+      $counter++;
+    }
+    $this->view->showRanking("ranking",$ranking);
+  }
+
   private function getRankedIdea($id){
+
     $idUser = ($this->model->getIdea($id))["id_user"];
-    
+
     $row = [
       'name' =>  ($this->model->getIdeaName($id))["name"],
       'creator' =>($this->userModel->getUser($idUser))[0]["name"],

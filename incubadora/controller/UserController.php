@@ -1,9 +1,9 @@
 <?php
-  require_once "Controller.php";
+
   require_once "./view/UserView.php";
   require_once "./model/UserModel.php";
   require_once 'SecuredController.php';
-
+//usar hash
   class UserController extends SecuredController{
 
     protected $view;
@@ -44,7 +44,7 @@
        }
       //$model->insertUser($userName, $lastName, $email, $userAbout);
       $this->model->insertUser($userName, $lastName, $email, $userAbout, $userId, $pass);
-      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]).'/showUsers');
+      $this->view->users();
 
     }
 
@@ -55,7 +55,7 @@
 
     public function deleteUser($params){
       $this->model->deleteUser($params[0]);
-      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]).'/showUsers');
+      $this->view->users();
       //$this->showUsers();
     }
 

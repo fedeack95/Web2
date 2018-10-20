@@ -27,6 +27,11 @@
       return $ideas->fetchAll(PDO::FETCH_ASSOC);
 
     }
+    public function getIdeasTheme($theme){
+      $ideas = $this->db->prepare("select * from idea where theme=?");
+      $ideas->execute(array($theme));
+      return $ideas->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     public function getIdea($id){
       $ideas = $this->db->prepare( "select * from idea where id_idea=?");

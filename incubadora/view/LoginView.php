@@ -9,9 +9,9 @@ class LoginView
   }
 
 
-  function mostrarLogin($message = ''){
+  function mostrarLogin($Title,$message = ''){
 
-    $this->Smarty->assign('Titulo',"Login");
+    $this->Smarty->assign('Titulo',$Title);
     $this->Smarty->assign('Message',$message); //to diplay messages to the user when something goes wrong
 
     $this->Smarty->display('templates/login.tpl');
