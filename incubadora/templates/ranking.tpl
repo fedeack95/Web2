@@ -9,7 +9,7 @@
       <option value="other">Other</option>
     </select>
     <button type="submit" name="button">Filter</button>
-      </form>
+
     </div>
   </div>
 
@@ -34,11 +34,13 @@
             <td class="col-2">{$row['donattion']}</td>
             <td class="col-2">{$row['bet']}</td>
             <td class="col-2">{$row['comments']}</td>
-            <td class="col-2"><a href="seeIdeaComments/{$idea['id_idea']}">Check</a></td>
+             {if $isSet eq "true"}
+            <td class="col-2"><a href="editThemeRanking/{$row['id']}">EDIT THEME</a></td>
+            {/if}
           </tr>
 
         {/foreach}
-
+        </form>
       </table>
     </div>
 

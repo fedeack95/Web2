@@ -11,10 +11,11 @@ class IdeasView
       $this->smarty= new Smarty();
     }
 
-  function show($title, $ideas){
+  function show($title,$ideas,$set){
 
    $this->smarty->assign('title',$title); // El 'Titulo' del assign puede ser cualquier valor
    $this->smarty->assign('ideas',$ideas);
+   $this->smarty->assign('isSet',$set);
    //$this->smarty->debugging = true;
    $this->smarty->display('templates/home.tpl');
  }
@@ -49,9 +50,7 @@ function showIdea($title,$idea,$like,$donnation,$comments,$bet){
 }
 
 
-public function home(){
-   header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-}
+
 
 }
 

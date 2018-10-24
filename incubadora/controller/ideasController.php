@@ -6,8 +6,9 @@
   require_once "./model/commentModel.php";
   require_once "./model/betModel.php";
   require_once "./controller/LoginController.php";
-  class IdeasController
-  {
+  require_once 'SecuredController.php';
+
+  class IdeasController extends SecuredController{
     private $view;
     private $model;
     private $controllerLogin;
@@ -15,9 +16,8 @@
     private $modelDonnation;
     private $commentModel;
     private $betModel;
-    public function __construct()
 
-    {
+    public function __construct(){
       //parent::__construct();
       $this->view = new ideasView();
       $this->model = new ideasModel();
@@ -28,9 +28,9 @@
       $this->controllerLogin = new LoginController();
 
     }
-    public function newIdea()
-    {
-         $this->view->showNewIdea("New Idea");
+
+    public function newIdea(){
+       $this->view->showNewIdea("New Idea");
     }
 
 
@@ -42,26 +42,22 @@
         session_start();
         if(isset($_SESSION["User"])){
           $idUser = ($_SESSION["User"])[0]["id_user"];
-
           $this->model->createIdea($name,$theme,$idUser, $impact,$description);
+          $ideas=$this->model->getIdeas();
+          //session_start();
+          $this->view->show("HOME",$ideas,isset($_SESSION["User"]));
 
         }else{
           $this->controllerLogin->Login();
-
         }
-
-
-
-
-
 
     }
 
     public function editIdea($param){
-     $id_idea = $param[0];
-     $idea = $this->model->GetIdea($id_idea);
-     $this->view->MostrarEditarTarea("Edit Idea", $idea);
-     $this->model->close();
+      $id_idea = $param[0];
+      $idea = $this->model->GetIdea($id_idea);
+      $this->view->MostrarEditarTarea("Edit Idea", $idea);
+      $this->model->close();
 
     }
     public function safeEdit(){
@@ -71,7 +67,7 @@
        $impact = $_POST["impactForm"];
        $description = $_POST["descriptionForm"];
        $this->model->safeEditIdea($name,$theme,$impact,$description,$id_idea);
-       $this->view->home();
+       $this->home();
 
        $this->model->close();
     }
@@ -88,22 +84,24 @@
     }
 
     public function deleteIdea($param){
-    $this->model->deleteIdea($param[0]);
-     $this->view->home();
-    $this->model->close();
+      $this->model->deleteIdea($param[0]);
+      $this->home();
+      $this->model->close();
     }
 
     public function getIdeaTheme($theme){
       $ideas = $this->model->getIdeas();
-
       $this->model->close();
     }
 
     public function home(){
       $ideas = $this->model->getIdeas();
-      $this->view->show("HOME",$ideas);
+      session_start();
+      $this->view->show("HOME",$ideas,isset($_SESSION["User"]));
       $this->model->close();
+
     }
+
 
 
   }

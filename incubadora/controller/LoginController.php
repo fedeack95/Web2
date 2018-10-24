@@ -2,6 +2,7 @@
 
 require_once  "./view/LoginView.php";
 require_once  "./model/UserModel.php";
+require_once "ideasController.php";
 
 
 class LoginController
@@ -10,15 +11,13 @@ class LoginController
   private $model;
   private $Titulo;
 
-  function __construct()
-  {
+  function __construct(){
     $this->view = new LoginView();
     $this->model = new UserModel();
     $this->Titulo = "Login";
   }
 
   function login(){
-
     $this->view->mostrarLogin($this->Titulo);
 
   }
@@ -26,7 +25,7 @@ class LoginController
   function logout(){
     session_start();
     session_destroy();
-    header(LOGIN);
+    $this->view->mostrarLogin($this->Titulo);
   }
 
   function verificarLogin(){
@@ -41,12 +40,13 @@ class LoginController
               session_start();
               $_SESSION["User"] = $dbUser;
               header(HOME);
+
           }else{
-            $this->view->mostrarLogin($this->Titulo,"Contraseña incorrecta");
+              $this->view->mostrarLogin($this->Titulo,"Contraseña incorrecta");
           }
       }else{
         //No existe el usario
-        $this->view->mostrarLogin("No existe el usario");
+          $this->view->mostrarLogin("No existe el usario");
       }
 
   }

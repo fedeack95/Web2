@@ -1,9 +1,11 @@
 <?php
-
+//require_once "view/LoginController.php";
 class SecuredController
 {
+  //private $view;
 
   function __construct(){
+  //  $this->view = new LoginView();
     session_start();
     if(isset($_SESSION["User"])){
       if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 20)) {

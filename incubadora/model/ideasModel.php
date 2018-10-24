@@ -50,8 +50,9 @@
     }
 
 
-    public function updateIdea($id){
-
+    public function safeEditTheme($theme,$id){
+      $sentece = $this->db->prepare("update idea set theme = ? where id_idea=?");
+      $sentece->execute(array($theme,$id));
     }
 
     public function createIdea($name,$theme,$idUser,$impact,$description){

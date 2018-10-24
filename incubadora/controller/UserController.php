@@ -41,6 +41,7 @@
        }
        if(isset($_POST["password"])){
          $pass = $_POST["password"];
+        // $hashPass = password_hash($pass,PASSWORD_DEFAULT);
        }
       //$model->insertUser($userName, $lastName, $email, $userAbout);
       $this->model->insertUser($userName, $lastName, $email, $userAbout, $userId, $pass);
@@ -56,7 +57,7 @@
     public function deleteUser($params){
       $this->model->deleteUser($params[0]);
       $this->view->users();
-      //$this->showUsers();
+
     }
 
   }

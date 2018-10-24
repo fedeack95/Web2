@@ -19,7 +19,7 @@ class rankingController
   private $commentModel;
   private $betModel;
   private $userModel;
-  private $ranking;
+
   public function __construct(){
 
     //parent::__construct();
@@ -30,10 +30,12 @@ class rankingController
     $this->commentModel = new commentModel();
     $this->betModel = new betModel();
     $this->userModel = new UserModel();
-    $this->ranking = $this->generarRanking();
+
   }
   public function getRanking(){
-    $this->view->showRanking("ranking",$this->ranking);
+    $ranking = $this->generarRanking();
+    session_start();
+    $this->view->showRanking("ranking",$ranking,isset($_SESSION["User"]));
   }
   private function generarRanking(){
     $ideas = $this->model->getIdeas();
@@ -50,14 +52,14 @@ class rankingController
   public function generateRankingTheme(){
     $theme=$_POST["theme"];
     $ideas = $this->model->getIdeasTheme($theme);
-
     $ranking;
     $counter=0;
     foreach ($ideas as $idea ) {
       $ranking[$counter]= $this->getRankedIdea($idea['id_idea']);
       $counter++;
     }
-    $this->view->showRanking("ranking",$ranking);
+    session_start();
+    $this->view->showRanking("ranking",$ranking,isset($_SESSION["User"]));
   }
 
   private function getRankedIdea($id){
@@ -65,6 +67,7 @@ class rankingController
     $idUser = ($this->model->getIdea($id))["id_user"];
 
     $row = [
+      'id'=>$id,
       'name' =>  ($this->model->getIdeaName($id))["name"],
       'creator' =>($this->userModel->getUser($idUser))[0]["name"],
       'theme' => ($this->model->getIdeaTheme($id))["theme"],
@@ -77,12 +80,23 @@ class rankingController
   }
 
 
+ public function editRankingTheme($params){
+   $id=$params[0];
+   $ranking=$this->getRankedIdea($id);
+
+   $this->view->showEditRanking('Edit Ranking',$ranking,$id);
+
+ }
+
+ public function safeEditRankingTheme(){
+     $id= $_POST['idForm'];
+     $theme =$_POST['theme'];
+     $this->model-> safeEditTheme($theme,$id);
+     $this->getRanking();
+ }
 
 
 }
-
-
-
 
 
 

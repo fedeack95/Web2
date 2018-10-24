@@ -21,12 +21,15 @@
                  </div>
                </div>
                <div class="row">
+                 {if $isSet eq "true"}
+
                  <div class="col-12 col-md-12 col-lg-3 ">
                    <a href="delete/{$idea['id_idea']}">DELETE</a>
                  </div>
                  <div class="col-12 col-md-12 col-lg-3 ">
                    <a href="edit/{$idea['id_idea']}">EDITAR</a>
                  </div>
+                 {/if}
                  <div class="col-12 col-md-12 col-lg-3 ">
                    <a href="view/{$idea['id_idea']}">VIEW</a>
                  </div>
