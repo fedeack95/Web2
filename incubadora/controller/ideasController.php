@@ -6,6 +6,7 @@
   require_once "./model/commentModel.php";
   require_once "./model/betModel.php";
   require_once "./controller/LoginController.php";
+  require_once "./model/themeModel.php";
   require_once 'SecuredController.php';
 
   class IdeasController extends SecuredController{
@@ -16,6 +17,7 @@
     private $modelDonnation;
     private $commentModel;
     private $betModel;
+    private $themeModel;
 
     public function __construct(){
       //parent::__construct();
@@ -26,11 +28,13 @@
       $this->commentModel = new commentModel();
       $this->betModel = new betModel();
       $this->controllerLogin = new LoginController();
+      $this->themeModel = new themeModel();
 
     }
 
     public function newIdea(){
-       $this->view->showNewIdea("New Idea");
+      $themes = $this->themeModel->getThemes();
+       $this->view->showNewIdea("New Idea",$themes);
     }
 
 

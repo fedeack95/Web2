@@ -3,10 +3,9 @@
   <div class="col-12">
     <form class="" action="rankingTheme" method="post">
     <select name = "theme" >
-      <option value="social">Social</option>
-      <option value="politics">Politics</option>
-      <option value="leisure">Leisure</option>
-      <option value="other">Other</option>
+      {foreach from=$ranking item=row}
+        <option value="{$row['theme']}">{$row['theme']}</option>
+      {/foreach}
     </select>
     <button type="submit" name="button">Filter</button>
 

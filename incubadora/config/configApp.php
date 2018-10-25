@@ -29,7 +29,12 @@ class ConfigApp
       'logout'=> 'LoginController#logout',
       'verificarLogin' => 'LoginController#verificarLogin',
       'editThemeRanking' =>'rankingController#editRankingTheme',
-      'safeEditThemeRanking'=>'rankingController#safeEditRankingTheme'
+      'safeEditThemeRanking'=>'rankingController#safeEditRankingTheme',
+      'themes' => 'themeController#getThemes',
+      'deleteTheme' => 'themeController#deleteTheme',
+      'editTheme' => 'themeController#editTheme',
+      'saveEditTheme' => 'themeController#saveEditTheme',
+      'createTheme' => 'themeController#createTheme'
     ];
 
 }

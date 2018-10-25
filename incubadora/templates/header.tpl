@@ -48,6 +48,9 @@
               <li class="nav-item border">
                 <a class="nav-link" href="logout" id="rules-tab">LOGOUT</a>
               </li>
+              <li class="nav-item border">
+                <a class="nav-link" href="themes" id="rules-tab">THEMES</a>
+              </li>
             </ul>
           </div>
         </nav>

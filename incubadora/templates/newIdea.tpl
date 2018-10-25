@@ -26,10 +26,9 @@
               </div>
               <div class="col-12 column-right col-md-9">
               <select name="theme">
-                <option value="social">Social</option>
-                <option value="politics">Politics</option>
-                <option value="leisure">Leisure</option>
-                <option value="other">Other</option>
+                {foreach from=$themes item=row}
+                  <option value="{$row['name']}">{$row['name']}</option>
+                {/foreach}
               </select>
               </div>
 

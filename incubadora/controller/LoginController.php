@@ -2,7 +2,7 @@
 
 require_once  "./view/LoginView.php";
 require_once  "./model/UserModel.php";
-require_once "ideasController.php";
+
 
 
 class LoginController

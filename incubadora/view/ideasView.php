@@ -30,8 +30,9 @@ class IdeasView
    $this->smarty->display('templates/showEditIdea.tpl');
  }
 
- function showNewIdea($title){
+ function showNewIdea($title,$themes){
    $this->smarty->assign('title',$title);
+    $this->smarty->assign('themes',$themes);
    $this->smarty->assign('home',"http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
    $this->smarty->display('templates/newIdea.tpl');
  }
