@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-10-2018 a las 04:04:38
+-- Tiempo de generación: 26-10-2018 a las 04:47:59
 -- Versión del servidor: 10.1.35-MariaDB
 -- Versión de PHP: 7.2.9
 
@@ -105,9 +105,7 @@ CREATE TABLE `idea` (
 --
 
 INSERT INTO `idea` (`id_idea`, `name`, `id_user`, `theme`, `impact`, `description`) VALUES
-(35, 'fede', 6, 'fede', 'fede', 'Esta idea esta basada en cosas muy interesantes , esta descripcion es muy buena '),
-(36, 'fede2', 6, 'fede2', 'fede2', 'fede2'),
-(38, 'fede', 5, 'dasdad', 'sadasd', 'dasda');
+(35, 'fede1', 6, 'social', 'fede', 'Esta idea esta basaa en cosas muy interesantes , esta descripcion es muy buena ');
 
 -- --------------------------------------------------------
 
@@ -134,6 +132,27 @@ INSERT INTO `idea_like` (`id_like`, `quantity`, `id_idea`, `id_user`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `theme`
+--
+
+CREATE TABLE `theme` (
+  `id_theme` int(11) NOT NULL,
+  `name` varchar(40) COLLATE utf32_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `theme`
+--
+
+INSERT INTO `theme` (`id_theme`, `name`) VALUES
+(11, 'social'),
+(12, 'politica'),
+(13, 'other'),
+(15, 'ocio');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `user`
 --
 
@@ -153,7 +172,6 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `name`, `lastname`, `email`, `about`, `avatar`, `userId`, `password`) VALUES
-(0, 'adsasdasd', 'dasda', 'dasda', 'dsadsa', '', 'asdda', 'dasdasd'),
 (4, 'Facundo Edelmar', 'Martinez', 'facundomartinez@gmail.com', 'texto largo', '', 'famartinez', 'lala123'),
 (5, 'Fede', 'Ackerley', 'fedeack@gmail.com', 'texto largo', '', 'fedeack', 'lala345'),
 (6, 'pepe', 'Sarlanga', 'sarasa@gmail.com', 'asdljkasjdladj aasd ajsdla', '', 'pepesar', 'lala123');
@@ -202,6 +220,12 @@ ALTER TABLE `idea_like`
   ADD KEY `id_user` (`id_user`);
 
 --
+-- Indices de la tabla `theme`
+--
+ALTER TABLE `theme`
+  ADD PRIMARY KEY (`id_theme`);
+
+--
 -- Indices de la tabla `user`
 --
 ALTER TABLE `user`
@@ -233,13 +257,19 @@ ALTER TABLE `donnation`
 -- AUTO_INCREMENT de la tabla `idea`
 --
 ALTER TABLE `idea`
-  MODIFY `id_idea` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id_idea` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `idea_like`
 --
 ALTER TABLE `idea_like`
   MODIFY `id_like` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `theme`
+--
+ALTER TABLE `theme`
+  MODIFY `id_theme` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Restricciones para tablas volcadas
